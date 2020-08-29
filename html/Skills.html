@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oliad's Personal Website</title>
+    <link rel="stylesheet" href="C:/Users/oliad/OneDrive/Documents/Coding/Projects/My Personal Website/css/style.css">
+    <link class="icon" rel="icon" href="C:/Users/oliad/OneDrive/Documents/Coding/Projects/My Personal Website/images/Icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="C:/Users/oliad/OneDrive/Documents/Coding/Projects/My Personal Website/js/app.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <header>
+      <a href="index.html"><img class="resize" src="C:/Users/oliad/OneDrive/Documents/Coding/Projects/My Personal Website/images/logo.jpg" alt="logo"></a>
+      <nav>
+        <ul class="nav_links">
+          <li><a href="Projects.html">Projects</li>
+          <li><a href="Skills.html">Skills</li>
+          <li><a href="About Me.html">About Me</li>
+        </ul>
+      </nav>
+      <a class="cta" href="Contact.html"><button class="button" type="button" name="button">Contact</button></a>
+    </header>
+    <div class="container">
+      <div class="text">
+      </div>
+    </div>
+  <script src="C:/Users/oliad/OneDrive/Documents/Coding/Projects/My Personal Website/js/app.js"></script>
+  <script>
+  const phrases = ['Skills', 'Talents', 'HTML', 'Python', 'Java', 'First Robotics Canada', 'The Knowledge Society'];
+  const el = document.querySelector('.text');
+  const fx = new TextScramble(el);
+  let counter = 0;
+
+  const next = () => {
+    fx.setText(phrases[counter]).then(() => {
+      setTimeout(next, 2000);
+    });
+    counter = (counter + 1) % phrases.length;
+  };
+
+  next();
+      </script>
+    <div class="skills-container">
+      <div class="skills">
+        <div class="skill">
+          <div class="skill-name">HTML</div>
+          <div class="skill-bar">
+          </div>
+          <div class="skill-percentage" per="91">
+          </div>
+
+      <div class="skill">
+        <div class="skill-name">CSS</div>
+        <div class="skill-bar">
+        </div>
+        <div class="skill-percentage" per="76">
+        </div>
+      </div>
+    </div>
+    <div class="skills-container-2">
+      <div class="skill">
+        <div class="skill-name">Javascript</div>
+        <div class="skill-bar">
+        </div>
+        <div class="skill-percentage" per="51">
+        </div>
+      </div>
+    </div>
+    <div class="skills-container-3">
+      <div class="skill">
+        <div class="skill-name">Robotics</div>
+        <div class="skill-bar">
+        </div>
+        <div class="skill-percentage" per="66">
+        </div>
+      </div>
+    </div>
+  <script>
+    $('.skill-percentage').each(function () {
+      var $this = $(this);
+      var per = $this.attr('per');
+      $this.css("width",per+'%');
+      $({animatedValue: 0}).animate({animatedValue: per},{
+        duration: 1000,
+        step: function() {
+          $this.attr('per', Math.floor(this.animatedValue) + '%');
+        },
+        compelete: function(){
+          $this.attr('per', Math.floor(this.animatedValue) + '%');
+        }
+      });
+    });
+  </script>
+  </body>
+</html>
